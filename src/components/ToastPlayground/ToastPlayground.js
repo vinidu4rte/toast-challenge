@@ -9,21 +9,9 @@ import styles from './ToastPlayground.module.css';
 const VARIANT_OPTIONS = ['notice', 'warning', 'success', 'error'];
 
 function ToastPlayground() {
-  const { createToast, removeAllToasts } = React.useContext(ToastContext);
+  const { createToast } = React.useContext(ToastContext);
   const [selectedVariant, setSelectedVariant] = React.useState(VARIANT_OPTIONS[0]);
   const [message, setMessage] = React.useState("");
-
-  React.useEffect(() => {
-    function handleEscape(event) {
-      if(event.key === "Escape") {
-        removeAllToasts();
-      }
-    }
-
-    window.addEventListener('keydown', handleEscape);
-
-    return () => window.removeEventListener('keydown', handleEscape);
-  }, [removeAllToasts])
 
   function handleSubmit(event) {
     event.preventDefault();
