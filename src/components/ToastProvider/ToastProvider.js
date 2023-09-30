@@ -23,10 +23,15 @@ function ToastProvider({children}) {
       setToasts([...updatedToasts]);
     }
 
+    function removeAllToasts() {
+      setToasts([]);
+    }
+
     return {
       toasts,
       createToast,
       removeToast,
+      removeAllToasts,
     }
   }, [toasts])  
 
